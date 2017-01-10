@@ -1,0 +1,14 @@
+#!/usr/bin/env php
+
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use Th3Mouk\PokemonGoIVCalculator\Commands\CalculateCommand;
+
+$application = new Application();
+
+$application->add(new CalculateCommand());
+
+$application->run();

@@ -1,0 +1,31 @@
+{
+    "name": "th3mouk/pokemongo-iv-calc",
+    "description": "The most accurate PHP lib to calculate Pokemon Go IV",
+    "keywords": ["pokemon", "pokemon go", "pogo", "iv calculator", "pogo iv"],
+    "authors": [
+        {
+            "name": "Jérémy Marodon",
+            "email": "marodon.jeremy@gmail.com"
+        }
+    ],
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^7.1",
+        "symfony/console": "^3.2",
+        "tightenco/collect": "^5.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "friendsofphp/php-cs-fixer": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Th3Mouk\\PokemonGoIVCalculator\\": "src/",
+            "Th3Mouk\\PokemonGoIVCalculator\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/ivcalculator"
+    ]
+}
