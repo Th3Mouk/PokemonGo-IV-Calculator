@@ -80,6 +80,8 @@ class Calculator
         $pokemon->setCp($cp);
         $pokemon->setHp($hp);
 
+        $bestStats = $this->cleanBestStats($bestStats);
+
         $this->setRanges($bestStats, $maxStat);
 
         $this->potentialLevels = (new LevelExtractor())->getDustFiltered($dusts);
@@ -187,6 +189,16 @@ class Calculator
                 }
             });
         return $this;
+    }
+
+    /**
+     * Remove unavailable options give by user
+     * @param $bestStats
+     * @return array
+     */
+    private function cleanBestStats($bestStats): array
+    {
+        return array_intersect(self::AVAILABLE_OPTIONS, $bestStats);
     }
 
     /**

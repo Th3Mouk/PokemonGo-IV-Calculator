@@ -106,10 +106,6 @@ class IvCombinaison
             case 'hp':
                 return $this->getStamina();
         }
-
-        // TODO ensure with array_intersect available options into calculate commmand
-        // not throw anymore exception for this
-        throw new AbbreviationNotExists($abbr);
     }
 
     /**
