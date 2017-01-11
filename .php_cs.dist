@@ -19,6 +19,9 @@ return PhpCsFixer\Config::create()
         'header_comment' => ['header' => $header],
         'no_unused_imports' => true,
         'ordered_imports' => true,
+        'phpdoc_add_missing_param_annotation' => true,
+        'phpdoc_align' => true,
+        'phpdoc_order' => true,
     ])
     ->setFinder($finder)
 ;

@@ -35,9 +35,9 @@ class IvCombinaison
     /**
      * IvCombinaison constructor.
      * @param Level $level
-     * @param int $attack
-     * @param int $defense
-     * @param int $stamina
+     * @param int   $attack
+     * @param int   $defense
+     * @param int   $stamina
      */
     public function __construct(
         Level $level,
@@ -93,8 +93,8 @@ class IvCombinaison
 
     /**
      * @param $abbr
-     * @return int
      * @throws AbbreviationNotExists
+     * @return int
      */
     public function getAbbreviated($abbr): int
     {

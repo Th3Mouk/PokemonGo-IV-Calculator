@@ -53,6 +53,18 @@ class Calculator
         $this->potentialCombinaisons = new Collection();
     }
 
+    /**
+     * Process all operations to retrieve differents IV combinaisons
+     * @param  string  $pokemonName
+     * @param  int     $cp
+     * @param  int     $hp
+     * @param  int     $dusts
+     * @param  int     $global
+     * @param  int     $maxStat
+     * @param  array   $bestStats
+     * @param  bool    $upgraded
+     * @return Pokemon
+     */
     public function calculate(
         string $pokemonName,
         int $cp,
@@ -83,10 +95,10 @@ class Calculator
     }
 
     /**
-     * @param Pokemon $pokemon
-     * @param int $hp
-     *
-     * @param bool $upgraded
+     * Retrieve the possible level and stamina IV to match HP
+     * @param  Pokemon $pokemon
+     * @param  int     $hp
+     * @param  bool    $upgraded
      * @return $this
      */
     private function findPotentialStamina(
@@ -114,8 +126,9 @@ class Calculator
     }
 
     /**
-     * @param Pokemon $pokemon
-     * @param int $cp
+     * Test remaining combinaisons which match CP
+     * @param  Pokemon $pokemon
+     * @param  int     $cp
      * @return $this
      */
     private function findPotentialCombinaisons(Pokemon $pokemon, int $cp)
@@ -147,6 +160,12 @@ class Calculator
         return $this;
     }
 
+    /**
+     * Remove impossible combinaisons with coach indications
+     * @param  array $bestStats
+     * @param  int   $global
+     * @return $this
+     */
     private function cleanImpossibleCombinaisons(array $bestStats, int $global)
     {
         $this->potentialCombinaisons = $this->potentialCombinaisons
@@ -170,6 +189,11 @@ class Calculator
         return $this;
     }
 
+    /**
+     * Remove impossible values for differents IV with coach indications
+     * @param array $bestStats
+     * @param int   $maxStat
+     */
     private function setRanges(array $bestStats, int $maxStat)
     {
         $this->setRange($bestStats, $maxStat, 'atk', $this->attack_range);
@@ -187,12 +211,13 @@ class Calculator
     }
 
     /**
-     * @param Pokemon $pokemon
-     * @param Level $level
-     * @param int $cp
-     * @param int $attackIV
-     * @param int $defenseIV
-     * @param int $staminaIV
+     * Calculate if a combinaison of value match the given CP
+     * @param  Pokemon $pokemon
+     * @param  Level   $level
+     * @param  int     $cp
+     * @param  int     $attackIV
+     * @param  int     $defenseIV
+     * @param  int     $staminaIV
      * @return bool
      */
     private function testCP(
@@ -212,10 +237,11 @@ class Calculator
     }
 
     /**
-     * @param Pokemon $pokemon
-     * @param Level $level
-     * @param int $hp
-     * @param int $staminaIV
+     * Calculate if a combinaison of value match the given HP
+     * @param  Pokemon $pokemon
+     * @param  Level   $level
+     * @param  int     $hp
+     * @param  int     $staminaIV
      * @return bool
      */
     private function testHP(
@@ -229,7 +255,7 @@ class Calculator
 
     /**
      * Return the range of stats given by the coach
-     * @param int $maxStat
+     * @param  int   $maxStat
      * @return array
      */
     private function getMaxRange(int $maxStat)
@@ -249,7 +275,7 @@ class Calculator
 
     /**
      * Return the range of stats non cited by the coach
-     * @param int $maxStat
+     * @param  int   $maxStat
      * @return array
      */
     private function getLowerRange(int $maxStat)

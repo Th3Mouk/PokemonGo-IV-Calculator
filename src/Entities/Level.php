@@ -37,10 +37,10 @@ class Level
 
     /**
      * Level constructor.
-     * @param int $level
-     * @param int $dust
+     * @param int   $level
+     * @param int   $dust
      * @param float $cpScalar
-     * @param bool $upgraded
+     * @param bool  $upgraded
      */
     public function __construct($level, $dust, $cpScalar, $upgraded = false)
     {
@@ -71,7 +71,7 @@ class Level
     }
 
     /**
-     * Get cpScalar
+     * Get CP Scalar by Pokemon level
      *
      * @return float
      */

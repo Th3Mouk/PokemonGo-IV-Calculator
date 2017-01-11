@@ -23,7 +23,7 @@ class StaminaLevelCombinaison
     /**
      * StaminaLevelCombinaison constructor.
      * @param Level $level
-     * @param int $stamina
+     * @param int   $stamina
      */
     public function __construct(Level $level, int $stamina)
     {

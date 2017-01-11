@@ -15,9 +15,9 @@ class Pokedex extends GameMasterExtractor
 {
     /**
      * Retrieve a Pokemon object from GameMaster file
-     * @param $name
-     * @return Pokemon
+     * @param  string          $name
      * @throws PokemonNotFound
+     * @return Pokemon
      */
     public function get($name): Pokemon
     {

@@ -50,9 +50,9 @@ class Pokemon
     /**
      * Pokemon constructor.
      * @param string $name
-     * @param int $baseAttack
-     * @param int $baseDefense
-     * @param int $baseStamina
+     * @param int    $baseAttack
+     * @param int    $baseDefense
+     * @param int    $baseStamina
      */
     public function __construct(
         string $name,
