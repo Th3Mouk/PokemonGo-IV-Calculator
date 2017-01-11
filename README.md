@@ -5,7 +5,7 @@ This PHP library is the most accurate to calculate Pokemons IV's.
 
 [![Latest Stable Version](https://poser.pugx.org/th3mouk/pokemongo-iv-calc/v/stable)](https://packagist.org/packages/th3mouk/pokemongo-iv-calc) [![Latest Unstable Version](https://poser.pugx.org/th3mouk/pokemongo-iv-calc/v/unstable)](https://packagist.org/packages/th3mouk/pokemongo-iv-calc) [![Total Downloads](https://poser.pugx.org/th3mouk/pokemongo-iv-calc/downloads)](https://packagist.org/packages/th3mouk/pokemongo-iv-calc) [![License](https://poser.pugx.org/th3mouk/pokemongo-iv-calc/license)](https://packagist.org/packages/th3mouk/pokemongo-iv-calc)
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8949771b-1e7a-437f-a239-1c5f8addb75d/mini.png)](https://insight.sensiolabs.com/projects/8949771b-1e7a-437f-a239-1c5f8addb75d)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/8949771b-1e7a-437f-a239-1c5f8addb75d/mini.png)](https://insight.sensiolabs.com/projects/8949771b-1e7a-437f-a239-1c5f8addb75d) [![Build Status](https://travis-ci.org/Th3Mouk/PokemonGo-IV-Calculator.svg?branch=master)](https://travis-ci.org/Th3Mouk/PokemonGo-IV-Calculator) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Th3Mouk/PokemonGo-IV-Calculator/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Th3Mouk/PokemonGo-IV-Calculator/?branch=master)
 
 ## Installation
 

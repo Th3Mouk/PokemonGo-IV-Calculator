@@ -1,0 +1,26 @@
+language: php
+
+php:
+  - 7.1
+  - nightly
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1
+      env: COMPOSER_FLAGS="--prefer-lowest"
+  allow_failures:
+    - php: nightly
+
+install:
+  - mkdir -p ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d && echo "memory_limit=-1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - composer update --prefer-dist --no-interaction $COMPOSER_FLAGS
+
+script:
+  - php vendor/bin/peridot tests
