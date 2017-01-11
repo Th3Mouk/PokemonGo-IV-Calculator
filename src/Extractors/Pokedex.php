@@ -11,7 +11,7 @@ namespace Th3Mouk\PokemonGoIVCalculator\Extractors;
 use Th3Mouk\PokemonGoIVCalculator\Entities\Pokemon;
 use Th3Mouk\PokemonGoIVCalculator\Exceptions\PokemonNotFound;
 
-class Pokedex extends GameMasterExtractor
+final class Pokedex extends GameMasterExtractor
 {
     /**
      * Retrieve a Pokemon object from GameMaster file
@@ -19,7 +19,7 @@ class Pokedex extends GameMasterExtractor
      * @throws PokemonNotFound
      * @return Pokemon
      */
-    public function get($name): Pokemon
+    public function get(string $name): Pokemon
     {
         $collection = $this->getGameMasterJsonCollection();
 
