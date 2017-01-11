@@ -288,4 +288,64 @@ class Calculator
         // 37-45
         return 45;
     }
+
+    /**
+     * Get attack_range
+     *
+     * @return array
+     */
+    public function getAttackRange(): array
+    {
+        return $this->attack_range;
+    }
+
+    /**
+     * Get defense_range
+     *
+     * @return array
+     */
+    public function getDefenseRange(): array
+    {
+        return $this->defense_range;
+    }
+
+    /**
+     * Get stamina_range
+     *
+     * @return array
+     */
+    public function getStaminaRange(): array
+    {
+        return $this->stamina_range;
+    }
+
+    /**
+     * Get potentialLevels
+     *
+     * @return Collection
+     */
+    public function getPotentialLevels(): Collection
+    {
+        return $this->potentialLevels;
+    }
+
+    /**
+     * Get potentialStamina
+     *
+     * @return Collection
+     */
+    public function getPotentialStamina(): Collection
+    {
+        return $this->potentialStamina;
+    }
+
+    /**
+     * Get potentialCombinaisons
+     *
+     * @return Collection
+     */
+    public function getPotentialCombinaisons(): Collection
+    {
+        return $this->potentialCombinaisons;
+    }
 }
