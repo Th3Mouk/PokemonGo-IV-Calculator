@@ -12,9 +12,8 @@ use Illuminate\Support\Collection;
 
 class LevelExtractor extends BaseExtractor
 {
-    /**
-     * @var array
-     */
+    private const FILE_PATH = __DIR__.'/../../datas/levels.json';
+
     protected $json = null;
 
     /**
@@ -22,10 +21,10 @@ class LevelExtractor extends BaseExtractor
      */
     protected $collection = null;
 
-    public function getGameMasterJson(): array
+    public function getGameMasterJson()
     {
         if (null === $this->json) {
-            $this->json = parent::loadJson(__DIR__.'/../../datas/levels.json');
+            $this->json = $this->loadJson(self::FILE_PATH);
         }
         return $this->json;
     }

@@ -12,9 +12,8 @@ use Illuminate\Support\Collection;
 
 class GameMasterExtractor extends BaseExtractor
 {
-    /**
-     * @var array
-     */
+    private const FILE_PATH = __DIR__.'/../../datas/gamemaster.json';
+
     protected $json = null;
 
     /**
@@ -22,11 +21,10 @@ class GameMasterExtractor extends BaseExtractor
      */
     protected $collection = null;
 
-    public function getGameMasterJson(): array
+    public function getGameMasterJson()
     {
         if (null === $this->json) {
-            $this->json = parent::loadJson(__DIR__.'/../../datas/gamemaster.json')
-                ->itemTemplates;
+            $this->json = $this->loadJson(self::FILE_PATH)->itemTemplates;
         }
         return $this->json;
     }
