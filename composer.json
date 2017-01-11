@@ -16,8 +16,9 @@
         "tightenco/collect": "^5.3"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7",
-        "friendsofphp/php-cs-fixer": "^2.0"
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "peridot-php/peridot": "^1.18",
+        "peridot-php/leo": "^1.6"
     },
     "autoload": {
         "psr-4": {
