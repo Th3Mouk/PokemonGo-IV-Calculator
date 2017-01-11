@@ -61,7 +61,7 @@ class Calculator
         int $global,
         int $maxStat,
         array $bestStats,
-        bool $upgraded
+        bool $upgraded = false
     ): Pokemon {
         $pokemon = (new Pokedex())->get($pokemonName);
 
