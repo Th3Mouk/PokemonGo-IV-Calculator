@@ -51,6 +51,30 @@ describe('Calculator', function () {
         });
     });
 
+    describe('test min/max stats', function () {
+        it("with combinaisons", function () {
+            $growlithe = (new Calculator())->calculate(
+               'growlithe', 482, 65, 1900, 3, 3, ['atk']
+           );
+
+            $this->assert->equal($growlithe->getMinAttack(), 14);
+            $this->assert->equal($growlithe->getMinDefense(), 7);
+            $this->assert->equal($growlithe->getMinStamina(), 12);
+
+            $this->assert->equal($growlithe->getMaxAttack(), 14);
+            $this->assert->equal($growlithe->getMaxDefense(), 8);
+            $this->assert->equal($growlithe->getMaxStamina(), 13);
+        });
+
+        it("without combinaisons", function () {
+            $growlithe = (new Calculator())->calculate(
+                'growlithe', 5000, 65, 1900, 3, 3, ['atk']
+            );
+
+            $this->assert->equal($growlithe->getMinAttack(), null);
+        });
+    });
+
     describe('setRanges()', function () {
         it("100% iv pokemon", function () {
             $calculator = new Calculator();

@@ -107,6 +107,78 @@ class Pokemon
     }
 
     /**
+     * Return the min attack of a Pokemon
+     * @return int
+     */
+    public function getMinAttack(): ?int
+    {
+        return $this->getIvCombinaisons()->min(
+            function (IvCombinaison $combinaison) {
+                return $combinaison->getAttack();
+            });
+    }
+
+    /**
+     * Return the max attack of a Pokemon
+     * @return int
+     */
+    public function getMaxAttack(): ?int
+    {
+        return $this->getIvCombinaisons()->max(
+            function (IvCombinaison $combinaison) {
+                return $combinaison->getAttack();
+            });
+    }
+
+    /**
+     * Return the min defense of a Pokemon
+     * @return int
+     */
+    public function getMinDefense(): ?int
+    {
+        return $this->getIvCombinaisons()->min(
+            function (IvCombinaison $combinaison) {
+                return $combinaison->getDefense();
+            });
+    }
+
+    /**
+     * Return the max defense of a Pokemon
+     * @return int
+     */
+    public function getMaxDefense(): ?int
+    {
+        return $this->getIvCombinaisons()->max(
+            function (IvCombinaison $combinaison) {
+                return $combinaison->getDefense();
+            });
+    }
+
+    /**
+     * Return the min stamina of a Pokemon
+     * @return int
+     */
+    public function getMinStamina(): ?int
+    {
+        return $this->getIvCombinaisons()->min(
+            function (IvCombinaison $combinaison) {
+                return $combinaison->getStamina();
+            });
+    }
+
+    /**
+     * Return the max stamina of a Pokemon
+     * @return int
+     */
+    public function getMaxStamina(): ?int
+    {
+        return $this->getIvCombinaisons()->max(
+            function (IvCombinaison $combinaison) {
+                return $combinaison->getStamina();
+            });
+    }
+
+    /**
      * Get ivCombinaisons
      *
      * @return Collection
