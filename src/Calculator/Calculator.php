@@ -173,7 +173,8 @@ class Calculator
         $this->potentialCombinaisons = $this->potentialCombinaisons
             // Eliminate impossible combinaison for global combinaison
             ->filter(function ($combinaison) use ($global) {
-                if ($combinaison->getTotal() < $this->getMaxGlobalEvaluation($global)) {
+                if ($combinaison->getTotal() <= $this->getMaxGlobalEvaluation($global) &&
+                    $combinaison->getTotal() > $this->getMaxGlobalEvaluation($global-1)) {
                     return true;
                 }
                 return false;
@@ -188,6 +189,7 @@ class Calculator
                     return false;
                 }
             });
+
         return $this;
     }
 
@@ -313,6 +315,7 @@ class Calculator
     private function getMaxGlobalEvaluation($global)
     {
         switch ($global) {
+            case 0:
             case 1:
                 // 0-22
                 return 22;

@@ -49,6 +49,22 @@ describe('Calculator', function () {
                 new Collection([$combinaison])
             );
         });
+
+        it("test exclusion too low average combinaison", function () {
+            $jigglypuff = (new Calculator())->calculate(
+                'jigglypuff', 518, 168, 4500, 4, 3, ['atk']
+            );
+
+            $level = new Level(27, 4500, 0.6941437);
+            $combinaison1 = new IvCombinaison($level, 13, 11, 13);
+            $combinaison2 = new IvCombinaison($level, 14, 10, 13);
+
+            $this->assert->equal((int)$jigglypuff->getAveragePerfection()*10, (int)82.2*10);
+            $this->assert->equal(
+                $jigglypuff->getIvCombinaisons(),
+                new Collection([$combinaison1, $combinaison2])
+            );
+        });
     });
 
     describe('test min/max stats', function () {
