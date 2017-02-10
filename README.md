@@ -9,7 +9,7 @@ This PHP library is the most accurate to calculate Pokemons IV's.
 
 ## Installation
 
-`composer require th3mouk/pokemongo-iv-calc ^1.0`
+`composer require th3mouk/pokemongo-iv-calc`
 
 ## Usage
 
