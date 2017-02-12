@@ -183,11 +183,11 @@ class Calculator
             ->filter(function ($combinaison) use ($bestStats) {
                 $nonBestStats = array_diff(self::AVAILABLE_OPTIONS, $bestStats);
                 foreach ($nonBestStats as $nonBestStat) {
-                    if ($combinaison->getAbbreviated($nonBestStat) < $combinaison->getMaximalIv()) {
-                        return true;
+                    if ($combinaison->getAbbreviated($nonBestStat) >= $combinaison->getMaximalIv()) {
+                        return false;
                     }
-                    return false;
                 }
+                return true;
             });
 
         return $this;
