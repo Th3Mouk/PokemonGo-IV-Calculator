@@ -19,6 +19,8 @@ describe('Pokedex', function () {
 
             $assert = new Assert();
 
+            $assert->isInteger($pokemon->getNumber());
+            $assert->equal($pokemon->getNumber(), 25);
             $assert->strictEqual($pokemon->getName(), 'pikachu');
             $assert->isInteger($pokemon->getBaseAttack());
             $assert->isInteger($pokemon->getBaseDefense());

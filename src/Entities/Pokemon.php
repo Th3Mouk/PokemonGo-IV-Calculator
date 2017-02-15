@@ -13,6 +13,11 @@ use Illuminate\Support\Collection;
 class Pokemon
 {
     /**
+     * @var int
+     */
+    protected $number;
+
+    /**
      * @var string
      */
     protected $name;
@@ -49,17 +54,20 @@ class Pokemon
 
     /**
      * Pokemon constructor.
+     * @param int    $number
      * @param string $name
      * @param int    $baseAttack
      * @param int    $baseDefense
      * @param int    $baseStamina
      */
     public function __construct(
+        int $number,
         string $name,
         int $baseAttack,
         int $baseDefense,
         int $baseStamina
     ) {
+        $this->number = $number;
         $this->name = $name;
         $this->baseAttack = $baseAttack;
         $this->baseDefense = $baseDefense;
@@ -200,6 +208,16 @@ class Pokemon
         $this->ivCombinaisons = $ivCombinaisons;
 
         return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return int
+     */
+    public function getNumber(): int
+    {
+        return $this->number;
     }
 
     /**

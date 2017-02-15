@@ -50,7 +50,11 @@ final class Pokedex extends GameMasterExtractor
      */
     private function morph($pokemon)
     {
+        $res = null;
+        preg_match('/[0-9]{4}/', $pokemon->templateId, $res);
+
         return new Pokemon(
+            (int) current($res),
             strtolower($pokemon->pokemonSettings->pokemonId),
             $pokemon->pokemonSettings->stats->baseAttack,
             $pokemon->pokemonSettings->stats->baseDefense,
