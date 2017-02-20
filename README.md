@@ -58,6 +58,23 @@ And
 
 `4` is the best range (15 for an IV or >80% global IV)
 
+## Helpers
+
+Simply use static Helper with in first argument the pokemon level and second
+your trainer level.
+
+### Dusts calculator
+
+```php
+Helpers::dustsToMax(20.5, 20)
+```
+
+### Candies calculator
+
+```php
+Helpers::candiesToMax(23, 27)
+```
+
 ## Contributing
 
 Before commiting, please run `vendor/bin/php-cs-fixer fix .` command, and update the test suite.
