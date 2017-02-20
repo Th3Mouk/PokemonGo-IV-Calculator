@@ -188,6 +188,15 @@ class Calculator
                     }
                 }
                 return true;
+            })
+            // Eliminate impossible combinaisons with equals best stats
+            ->filter(function ($combinaison) use ($bestStats) {
+                foreach ($bestStats as $bestStat) {
+                    if ($combinaison->getAbbreviated($bestStat) != $combinaison->getMaximalIv()) {
+                        return false;
+                    }
+                }
+                return true;
             });
 
         return $this;

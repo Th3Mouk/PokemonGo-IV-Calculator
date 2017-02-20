@@ -79,6 +79,21 @@ describe('Calculator', function () {
                 new Collection([$combinaison])
             );
         });
+
+        it("test triple equals stats", function () {
+            $diglett = (new Calculator())->calculate(
+                'diglett', 256, 19, 3000, 3, 2, ['atk', 'def', 'hp']
+            );
+
+            $level = new Level(21, 3000, 0.6121573);
+            $combinaison = new IvCombinaison($level, 12, 12, 12);
+
+            $this->assert->equal($diglett->getAveragePerfection(), 80);
+            $this->assert->equal(
+                $diglett->getIvCombinaisons(),
+                new Collection([$combinaison])
+            );
+        });
     });
 
     describe('test min/max stats', function () {
@@ -159,6 +174,17 @@ describe('Calculator', function () {
             $this->assert->equal($calculator->getAttackRange(), range(0, 15));
             $this->assert->equal($calculator->getDefenseRange(), range(0, 15));
             $this->assert->equal($calculator->getStaminaRAnge(), range(0, 15));
+        });
+
+        it("check triple max stats values", function () {
+            $calculator = new Calculator();
+            $calculator->calculate(
+                'diglett', 256, 19, 3000, 3, 2, ['atk', 'def', 'hp']
+            );
+
+            $this->assert->equal($calculator->getAttackRange(), range(8, 12));
+            $this->assert->equal($calculator->getDefenseRange(), range(8, 12));
+            $this->assert->equal($calculator->getStaminaRAnge(), range(8, 12));
         });
     });
 });
