@@ -325,6 +325,7 @@ class Calculator
     {
         switch ($global) {
             case 0:
+                return -1;
             case 1:
                 // 0-22
                 return 22;

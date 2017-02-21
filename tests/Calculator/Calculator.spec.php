@@ -94,6 +94,31 @@ describe('Calculator', function () {
                 new Collection([$combinaison])
             );
         });
+
+        it("test minimum stats with only one max there must be 3 combinaisons", function () {
+            $crobat = (new Calculator())->calculate(
+                'crobat', 1579, 116, 4000, 1, 1, ['atk']
+            );
+
+            $this->assert->equal(
+                $crobat->getIvCombinaisons()->count(),
+                3
+            );
+        });
+
+        it("test minimum stats with one max stat there must be 2 combinaisons", function () {
+            $noctowl = (new Calculator())->calculate(
+                'noctowl', 569, 95, 1300, 1, 4, ['hp']
+            );
+
+            $this->assert->equal(
+                $noctowl->getIvCombinaisons()->count(),
+                2
+            );
+
+            $this->assert->equal($noctowl->getMinStamina(), 15);
+            $this->assert->equal($noctowl->getMaxStamina(), 15);
+        });
     });
 
     describe('test min/max stats', function () {
