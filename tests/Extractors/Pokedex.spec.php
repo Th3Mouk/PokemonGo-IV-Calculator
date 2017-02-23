@@ -13,28 +13,43 @@ use Th3Mouk\PokemonGoIVCalculator\Exceptions\PokemonNotFound;
 use Th3Mouk\PokemonGoIVCalculator\Extractors\Pokedex;
 
 describe('Pokedex', function () {
-    describe('get(pikachu)', function () {
-        it("Should return a pokemon object of Pikachu", function () {
-            $pokemon = (new Pokedex())->get('pikachu');
+    it("Should return a pokemon object of Pikachu", function () {
+        $pokemon = (new Pokedex())->get('pikachu');
 
-            $assert = new Assert();
+        $assert = new Assert();
 
-            $assert->isInteger($pokemon->getNumber());
-            $assert->equal($pokemon->getNumber(), 25);
-            $assert->strictEqual($pokemon->getName(), 'pikachu');
-            $assert->isInteger($pokemon->getBaseAttack());
-            $assert->isInteger($pokemon->getBaseDefense());
-            $assert->isInteger($pokemon->getBaseStamina());
-        });
+        $assert->isInteger($pokemon->getNumber());
+        $assert->equal($pokemon->getNumber(), 25);
+        $assert->strictEqual($pokemon->getName(), 'pikachu');
+        $assert->isInteger($pokemon->getBaseAttack());
+        $assert->isInteger($pokemon->getBaseDefense());
+        $assert->isInteger($pokemon->getBaseStamina());
+
+        $assert->equal($pokemon->getTypes(), ['POKEMON_TYPE_ELECTRIC']);
     });
 
-    describe('get(unknowedPkm)', function () {
-        it("Should throws a PokemonNotFound exception", function () {
-            $assert = new Assert();
+    it("Should return a pokemon object of Gyarados", function () {
+        $pokemon = (new Pokedex())->get('Gyarados');
 
-            $assert->throws(function () {
-                (new Pokedex())->get('unknowedPkm');
-            }, PokemonNotFound::class);
-        });
+        $assert = new Assert();
+
+        $assert->isInteger($pokemon->getNumber());
+        $assert->equal($pokemon->getNumber(), 130);
+        $assert->strictEqual($pokemon->getName(), 'gyarados');
+        $assert->isInteger($pokemon->getBaseAttack());
+        $assert->isInteger($pokemon->getBaseDefense());
+        $assert->isInteger($pokemon->getBaseStamina());
+
+        $assert->equal($pokemon->getTypes(),
+            ['POKEMON_TYPE_WATER', 'POKEMON_TYPE_FLYING']
+        );
+    });
+
+    it("Should throws a PokemonNotFound exception", function () {
+        $assert = new Assert();
+
+        $assert->throws(function () {
+            (new Pokedex())->get('unknowedPkm');
+        }, PokemonNotFound::class);
     });
 });

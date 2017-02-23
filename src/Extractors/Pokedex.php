@@ -50,6 +50,13 @@ final class Pokedex extends GameMasterExtractor
      */
     private function morph($pokemon)
     {
+        $types = [];
+
+        $types[] = $pokemon->pokemonSettings->type;
+        if (property_exists($pokemon->pokemonSettings, 'type2')) {
+            $types[] = $pokemon->pokemonSettings->type2;
+        }
+
         $res = null;
         preg_match('/[0-9]{4}/', $pokemon->templateId, $res);
 
@@ -58,7 +65,8 @@ final class Pokedex extends GameMasterExtractor
             strtolower($pokemon->pokemonSettings->pokemonId),
             $pokemon->pokemonSettings->stats->baseAttack,
             $pokemon->pokemonSettings->stats->baseDefense,
-            $pokemon->pokemonSettings->stats->baseStamina
+            $pokemon->pokemonSettings->stats->baseStamina,
+            $types
         );
     }
 }

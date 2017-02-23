@@ -23,6 +23,11 @@ class Pokemon
     protected $name;
 
     /**
+     * @var string[]
+     */
+    protected $types;
+
+    /**
      * @var int
      */
     protected $cp;
@@ -54,24 +59,27 @@ class Pokemon
 
     /**
      * Pokemon constructor.
-     * @param int    $number
-     * @param string $name
-     * @param int    $baseAttack
-     * @param int    $baseDefense
-     * @param int    $baseStamina
+     * @param int      $number
+     * @param string   $name
+     * @param int      $baseAttack
+     * @param int      $baseDefense
+     * @param int      $baseStamina
+     * @param string[] $types
      */
     public function __construct(
         int $number,
         string $name,
         int $baseAttack,
         int $baseDefense,
-        int $baseStamina
+        int $baseStamina,
+        array $types
     ) {
         $this->number = $number;
         $this->name = $name;
         $this->baseAttack = $baseAttack;
         $this->baseDefense = $baseDefense;
         $this->baseStamina = $baseStamina;
+        $this->types = $types;
     }
 
     /**
@@ -228,6 +236,16 @@ class Pokemon
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Get types
+     *
+     * @return \string[]
+     */
+    public function getTypes(): array
+    {
+        return $this->types;
     }
 
     /**
