@@ -33,6 +33,9 @@ describe('Calculator', function () {
                 $bulbasaur->getIvCombinaisons(),
                 new Collection([$combinaison])
             );
+
+            $this->assert->equal($bulbasaur->getMinLevel(), 19);
+            $this->assert->equal($bulbasaur->getMaxLevel(), 19);
         });
 
         it("test double 13 IV (max)", function () {
@@ -118,6 +121,15 @@ describe('Calculator', function () {
 
             $this->assert->equal($noctowl->getMinStamina(), 15);
             $this->assert->equal($noctowl->getMaxStamina(), 15);
+        });
+
+        it("test the level calculator on upgraded pokemon", function () {
+            $charizard = (new Calculator())->calculate(
+                'charizard', 2147, 121, 4500, 4, 4, ['atk', 'hp'], true
+            );
+
+            $this->assert->equal($charizard->getMinLevel(), 28.5);
+            $this->assert->equal($charizard->getMaxLevel(), 28.5);
         });
     });
 

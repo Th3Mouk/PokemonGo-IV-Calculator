@@ -195,6 +195,38 @@ class Pokemon
     }
 
     /**
+     * Return the min level of a Pokemon
+     * @return float
+     */
+    public function getMinLevel(): ?float
+    {
+        return $this->getIvCombinaisons()
+            ->map(function (IvCombinaison $combinaison) {
+                return $combinaison->getLevel()->getLevel();
+            })
+            ->sortBy(function ($value) {
+                return $value;
+            })
+            ->first();
+    }
+
+    /**
+     * Return the max level of a Pokemon
+     * @return float
+     */
+    public function getMaxLevel(): ?float
+    {
+        return $this->getIvCombinaisons()
+            ->map(function (IvCombinaison $combinaison) {
+                return $combinaison->getLevel()->getLevel();
+            })
+            ->sortBy(function ($value) {
+                return $value;
+            })
+            ->last();
+    }
+
+    /**
      * Get ivCombinaisons
      *
      * @return Collection

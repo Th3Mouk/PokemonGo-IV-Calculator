@@ -53,10 +53,13 @@ class Level
     /**
      * Get level
      *
-     * @return int
+     * @return float
      */
-    public function getLevel(): int
+    public function getLevel(): float
     {
+        if ($this->upgraded) {
+            return $this->level + 0.5;
+        }
         return $this->level;
     }
 
