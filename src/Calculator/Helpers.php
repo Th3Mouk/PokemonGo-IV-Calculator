@@ -24,6 +24,14 @@ class Helpers
         $loop = $pokemon;
         $dusts = 0;
 
+        if ($pokemon >= $trainer) {
+            return 0;
+        }
+
+        if ($trainer > 40) {
+            $trainer = 40;
+        }
+
         $levels = (new LevelExtractor())
             ->getIntervalLevelFiltered($pokemon, $trainer);
 
@@ -53,6 +61,14 @@ class Helpers
         $trainer += 1.5;
         $loop = $pokemon;
         $candies = 0;
+
+        if ($pokemon >= $trainer) {
+            return 0;
+        }
+
+        if ($trainer > 40) {
+            $trainer = 40;
+        }
 
         $levels = (new LevelExtractor())
             ->getIntervalLevelFiltered($pokemon, $trainer);

@@ -42,6 +42,11 @@ describe('Helpers', function () {
                 Helpers::dustsToMax(21.5, 20),
                 0
             );
+
+            $this->assert->equal(
+                Helpers::dustsToMax(21.5, 19),
+                0
+            );
         });
     });
 
@@ -69,6 +74,11 @@ describe('Helpers', function () {
 
             $this->assert->equal(
                 Helpers::candiesToMax(21.5, 20),
+                0
+            );
+
+            $this->assert->equal(
+                Helpers::candiesToMax(21.5, 19),
                 0
             );
         });
