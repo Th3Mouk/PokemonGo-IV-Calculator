@@ -83,4 +83,20 @@ describe('Helpers', function () {
             );
         });
     });
+
+    context('calculateCP', function () {
+        it("results must be asserted", function () {
+            $this->assert->equal(
+                Helpers::calculateCP(250, 212, 203, 17),
+                1573
+            );
+        });
+
+        it("results must be asserted", function () {
+            $this->assert->equal(
+                Helpers::calculateCP(238, 184, 171, 29, true),
+                2222
+            );
+        });
+    });
 });

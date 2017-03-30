@@ -75,6 +75,11 @@ Helpers::dustsToMax(20.5, 20)
 Helpers::candiesToMax(23, 27)
 ```
 
+### CP calculator
+```php
+Helpers::calculateCP(238, 184, 171, 29, true)
+```
+
 ## Contributing
 
 Before commiting, please run `vendor/bin/php-cs-fixer fix .` command, and update the test suite.

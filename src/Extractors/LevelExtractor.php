@@ -43,6 +43,13 @@ class LevelExtractor extends BaseExtractor
             ->where('dust', $dusts);
     }
 
+    public function getExactLevel(int $level)
+    {
+        return $this->getGameMasterJsonCollection()
+            ->where('level', $level)
+            ->first();
+    }
+
     public function getIntervalLevelFiltered(float $min, float $max)
     {
         return $this->getGameMasterJsonCollection()

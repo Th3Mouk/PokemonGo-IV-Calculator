@@ -54,4 +54,14 @@ describe('LevelExtractor', function () {
             $assert->lengthOf($collection, 0);
         });
     });
+
+    describe('getExactLevel(16)', function () {
+        it("Should return informations for the level 16", function () {
+            $level = (new LevelExtractor())->getExactLevel(16);
+
+            expect($level->dust)->to->be->equal(1900);
+            expect($level->candy)->to->be->equal(2);
+            expect($level->cpScalar)->to->be->equal(0.5343543);
+        });
+    });
 });

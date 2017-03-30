@@ -8,6 +8,7 @@
 
 namespace Th3Mouk\PokemonGoIVCalculator\Calculator;
 
+use Th3Mouk\PokemonGoIVCalculator\Entities\Level;
 use Th3Mouk\PokemonGoIVCalculator\Extractors\LevelExtractor;
 
 class Helpers
@@ -86,5 +87,30 @@ class Helpers
         $candies -= $levels->last()->candy;
 
         return $candies;
+    }
+
+    /**
+     * Method to calculate the CP with stats
+     * @param  int  $attack
+     * @param  int  $defense
+     * @param  int  $stamina
+     * @param  int  $level
+     * @param  bool $upgraded
+     * @return int
+     */
+    public static function calculateCP(int $attack, int $defense, int $stamina, int $level, bool $upgraded = false)
+    {
+        $attackFactor = $attack;
+        $defenseFactor = pow($defense, 0.5);
+        $staminaFactor = pow($stamina, 0.5);
+
+        $datas = (new LevelExtractor())->getExactLevel($level);
+        $level = new Level(
+            $datas->level, $datas->dust, $datas->cpScalar, $upgraded
+        );
+
+        $scalarFactor = pow($level->getCpScalar(), 2);
+
+        return floor($attackFactor * $defenseFactor * $staminaFactor * $scalarFactor / 10);
     }
 }
