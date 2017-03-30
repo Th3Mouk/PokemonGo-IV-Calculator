@@ -1,7 +1,7 @@
 {
     "name": "th3mouk/pokemongo-iv-calc",
     "description": "The most accurate PHP lib to calculate Pokemon Go IV",
-    "keywords": ["pokemon", "pokemon go", "pogo", "iv calculator", "pogo iv"],
+    "keywords": ["pokemon", "pokemon go", "pogo", "iv calculator", "pogo iv", "calculator"],
     "authors": [
         {
             "name": "Jérémy Marodon",
@@ -28,5 +28,10 @@
     },
     "bin": [
         "bin/ivcalculator"
-    ]
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
 }
