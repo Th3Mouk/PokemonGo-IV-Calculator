@@ -23,6 +23,11 @@ class Pokemon
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $family;
+
+    /**
      * @var string[]
      */
     protected $types;
@@ -65,10 +70,12 @@ class Pokemon
      * @param int      $baseDefense
      * @param int      $baseStamina
      * @param string[] $types
+     * @param string   $familyId
      */
     public function __construct(
         int $number,
         string $name,
+        string $familyId,
         int $baseAttack,
         int $baseDefense,
         int $baseStamina,
@@ -76,6 +83,7 @@ class Pokemon
     ) {
         $this->number = $number;
         $this->name = $name;
+        $this->family = $familyId;
         $this->baseAttack = $baseAttack;
         $this->baseDefense = $baseDefense;
         $this->baseStamina = $baseStamina;
@@ -268,6 +276,16 @@ class Pokemon
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * Get family
+     *
+     * @return string
+     */
+    public function getFamily(): string
+    {
+        return $this->family;
     }
 
     /**

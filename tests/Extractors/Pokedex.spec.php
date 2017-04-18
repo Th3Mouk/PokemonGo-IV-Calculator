@@ -28,6 +28,18 @@ describe('Pokedex', function () {
         $assert->equal($pokemon->getTypes(), ['POKEMON_TYPE_ELECTRIC']);
     });
 
+    it("Should return a clefairy family", function () {
+        $pokemons = (new Pokedex())->getByFamily('family_clefairy');
+
+        $assert = new Assert();
+
+        $assert->equal($pokemons->count(), 3);
+
+        foreach ($pokemons as $pokemon) {
+            $assert->equal($pokemon->getFamilyId(), 'FAMILY_CLEFAIRY');
+        }
+    });
+
     it("Should return a pokemon object of Gyarados", function () {
         $pokemon = (new Pokedex())->get('Gyarados');
 
