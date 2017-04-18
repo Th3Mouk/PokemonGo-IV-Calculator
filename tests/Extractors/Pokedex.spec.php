@@ -36,7 +36,7 @@ describe('Pokedex', function () {
         $assert->equal($pokemons->count(), 3);
 
         foreach ($pokemons as $pokemon) {
-            $assert->equal($pokemon->getFamilyId(), 'FAMILY_CLEFAIRY');
+            $assert->equal($pokemon->getFamily(), 'FAMILY_CLEFAIRY');
         }
     });
 
